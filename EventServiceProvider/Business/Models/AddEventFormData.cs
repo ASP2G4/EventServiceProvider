@@ -8,7 +8,11 @@ public class AddEventFormData
     public string EventDescription { get; set; } = null!;
     public string EventLocation { get; set; } = null!;
 
+
     public DateTime EventDate { get; set; }
-    public int TicketAmount { get; set; }
-    public int TicketPrice { get; set; }
+
+    public int SilverTicketAmount { get; set; }
+    public int SilverTicketPrice { get; set; }
+    public int GoldTicketAmount { get; set; }
+    public int GoldTicketPrice { get; set; }
 }
