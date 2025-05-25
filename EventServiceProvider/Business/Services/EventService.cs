@@ -36,8 +36,11 @@ public class EventService(IEventRepository eventRepository, TicketContract.Ticke
             var request = new TicketRequest
             {
                 EventId = entity.Id,
-                TicketAmount = eventFormData.TicketAmount,
-                TicketPrice = eventFormData.TicketPrice,
+                EventName = eventFormData.EventName,
+                SilverTicketAmount = eventFormData.SilverTicketAmount,
+                SilverTicketPrice = eventFormData.SilverTicketPrice,
+                GoldTicketAmount = eventFormData.GoldTicketAmount,
+                GoldTicketPrice = eventFormData.GoldTicketPrice,
             };
 
             var response = await _ticketContractClient.CreateTicketAsync(request);
