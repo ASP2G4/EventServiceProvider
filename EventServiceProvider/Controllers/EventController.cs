@@ -36,15 +36,15 @@ public class EventController(IEventService eventService) : ControllerBase
         return events == null ? NotFound() : Ok(events);
     }
 
-    //[HttpPut]
-    //public async Task<IActionResult> Update(UpdateEventFormData formData)
-    //{
-    //    if (!ModelState.IsValid)
-    //        return BadRequest(ModelState);
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateEventFormData formData)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
-    //    var result = await _eventService.UpdateEventAsync(formData);
-    //    return result ? Ok(result) : NotFound();
-    //}
+        var result = await _eventService.UpdateEventAsync(formData);
+        return result ? Ok(result) : NotFound();
+    }
 
     //[HttpDelete("{eventId}")]
     //public async Task<IActionResult> Delete(string eventId)

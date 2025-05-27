@@ -9,6 +9,7 @@ public interface IEventService
     Task<bool> CreateEventAsync(AddEventFormData eventFormData);
     Task<IEnumerable<Event>> GetAllEventsAsync();
     Task<Event?> GetEventByIdAsync(string eventId);
+    Task<bool> UpdateEventAsync(UpdateEventFormData formData);
 }
 
 public class EventService(IEventRepository eventRepository, TicketContract.TicketContractClient ticketContractClient) : IEventService
@@ -78,4 +79,22 @@ public class EventService(IEventRepository eventRepository, TicketContract.Ticke
                 EventDate = entity.EventDate,
             };
     }
+
+    public async Task<bool> UpdateEventAsync(UpdateEventFormData formData)
+    {
+        if (formData == null)
+            return false;
+
+        var entity = new EventEntity
+        {
+            Id = formData.Id,
+            EventName = formData.EventName,
+            EventDescription = formData.EventDescription,
+            EventLocation = formData.EventLocation,
+            EventDate = formData.EventDate,
+        };
+
+        var result = await _eventRepository.UpdateAsync(entity);
+        return result;
+    } 
 }

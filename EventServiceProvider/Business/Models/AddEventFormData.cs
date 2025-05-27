@@ -12,7 +12,7 @@ public class AddEventFormData
     public DateTime EventDate { get; set; }
 
     public int SilverTicketAmount { get; set; }
-    public int SilverTicketPrice { get; set; }
+    public double SilverTicketPrice { get; set; }
     public int GoldTicketAmount { get; set; }
-    public int GoldTicketPrice { get; set; }
+    public double GoldTicketPrice { get; set; }
 }
